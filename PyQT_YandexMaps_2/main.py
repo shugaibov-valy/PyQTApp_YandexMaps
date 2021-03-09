@@ -81,6 +81,7 @@ class Ui_MainWindow(object):
                                         " через запятую:"))
         self.pushButton.setText(_translate("MainWindow", "Показать"))
         self.pushButton.clicked.connect(self.show_png)
+        self.lineEdit_2.setText('0.002,0.002')
         self.start_m = 0
     
     def create_map(self, first, second, m):              # create_map function
@@ -113,7 +114,7 @@ class Ui_MainWindow(object):
 
         
     def keyPressEvent(self, event):
-        if event.key() == Qt.Key_Up:                # Up Key
+        if event.key() == Qt.Key_W:                # W Key
             coords = self.lineEdit.text()
             m = self.lineEdit_2.text()
             if float(m.split(',')[0]) < float(self.start_m.split(',')[0]) + 0.5 and float(m.split(',')[1]) < float(self.start_m.split(',')[1]) + 0.5:
@@ -123,7 +124,7 @@ class Ui_MainWindow(object):
                 s = coords.split(',')[0]
                 self.create_map(f, s, m)
                 
-        elif event.key() == Qt.Key_Down:            # Down Key
+        elif event.key() == Qt.Key_S:            # S Key
             coords = self.lineEdit.text()
             m = self.lineEdit_2.text()
             if m != self.start_m:    
